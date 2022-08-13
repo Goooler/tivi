@@ -31,6 +31,8 @@ android-test = { id = "com.android.test", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+gms-googleServices = "com.google.gms.google-services:4.3.13"
+firebase-crashlytics = "com.google.firebase.crashlytics:2.9.1"
 spotless = "com.diffplug.spotless:6.9.1"
 dependencyUpdate = "com.github.ben-manes.versions:0.42.0"
 
@@ -105,7 +107,6 @@ dagger-dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 
 google-analytics = "com.google.firebase:firebase-analytics-ktx:21.1.0"
 google-crashlytics = "com.google.firebase:firebase-crashlytics-ktx:18.2.12"
-google-gmsGoogleServices = "com.google.gms:google-services:4.3.13"
 
 debugdrawer-debugdrawer = { module = "au.com.gridstone.debugdrawer:debugdrawer", version.ref = "debugdrawer" }
 debugdrawer-retrofit = { module = "au.com.gridstone.debugdrawer:debugdrawer-retrofit", version.ref = "debugdrawer" }

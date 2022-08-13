@@ -260,6 +260,8 @@ android.applicationVariants.all { variant ->
 }
 
 if (file("google-services.json").exists()) {
-    apply plugin: 'com.google.gms.google-services'
-    apply plugin: 'com.google.firebase.crashlytics'
+    plugins {
+        alias(libs.plugins.gms.googleServices)
+        alias(libs.plugins.firebase.crashlytics)
+    }
 }
