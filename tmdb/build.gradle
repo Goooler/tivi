@@ -21,11 +21,6 @@ plugins {
     alias(libs.plugins.kotlin.kapt)
 }
 
-kapt {
-    correctErrorTypes = true
-    useBuildCache = true
-}
-
 dependencies {
     implementation projects.base
 
