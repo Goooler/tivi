@@ -16,9 +16,9 @@
  */
 
 plugins {
-    id 'kotlin'
-    id 'kotlin-kapt'
     alias(libs.plugins.android.lint)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
 }
 
 kapt {

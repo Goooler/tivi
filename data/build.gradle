@@ -16,7 +16,7 @@
  */
 
 plugins {
-    id 'kotlin'
+    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.android.lint)
 }
 

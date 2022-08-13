@@ -15,11 +15,12 @@
  *
  */
 
-apply plugin: 'com.android.library'
+plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+}
 
-apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-kapt'
 kapt {
     correctErrorTypes = true
     useBuildCache = true
