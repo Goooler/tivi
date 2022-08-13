@@ -25,7 +25,7 @@ kapt {
     useBuildCache = true
 }
 
-apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'com.google.dagger.hilt.android'
 
 android {
     compileSdk buildConfig.compileSdk
