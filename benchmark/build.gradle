@@ -36,8 +36,8 @@ android {
 
 dependencies {
     implementation libs.androidx.test.junit
-    implementation 'androidx.benchmark:benchmark-macro-junit4:1.1.0'
-    implementation "androidx.test.uiautomator:uiautomator:2.2.0"
+    implementation libs.androidx.benchmark.macro
+    implementation libs.androidx.uiautomator
     implementation libs.androidx.test.junit
     implementation libs.kotlin.coroutines.android
 }
