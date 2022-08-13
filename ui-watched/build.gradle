@@ -18,14 +18,13 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt)
 }
 
 kapt {
     correctErrorTypes = true
     useBuildCache = true
 }
-
-apply plugin: 'com.google.dagger.hilt.android'
 
 android {
     compileSdk libs.versions.compileSdk.get() as int
