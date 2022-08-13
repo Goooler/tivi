@@ -67,8 +67,6 @@ dependencies {
 
     implementation libs.accompanist.insetsui
 
-    implementation libs.kotlin.stdlib
-
     implementation libs.hilt.compose
     implementation libs.hilt.library
     kapt libs.hilt.compiler
