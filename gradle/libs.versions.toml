@@ -34,7 +34,6 @@ hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 gms-googleServices = "com.google.gms.google-services:4.3.13"
 firebase-crashlytics = "com.google.firebase.crashlytics:2.9.1"
 spotless = "com.diffplug.spotless:6.9.1"
-dependencyUpdate = "com.github.ben-manes.versions:0.42.0"
 
 [libraries]
 accompanist-flowlayout = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanist" }
