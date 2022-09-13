@@ -34,10 +34,10 @@ android {
 
 dependencies {
     implementation projects.data
-    api projects.common.Imageloading
+    api projects.common.imageloading
 
     // TODO: Remove this dependency
-    api projects.common.ui.View
+    api projects.common.ui.view
 
     implementation libs.androidx.core
 
