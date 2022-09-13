@@ -28,7 +28,7 @@ android {
 dependencies {
     implementation projects.base
     implementation projects.data
-    implementation projects.commonUiView
+    implementation projects.common.ui.View
     implementation projects.tmdb
 
     implementation libs.androidx.core

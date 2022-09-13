@@ -28,8 +28,8 @@ android {
 
 dependencies {
     implementation projects.base
-    implementation projects.commonUiResources
-    implementation projects.commonUiView
+    implementation projects.common.ui.Resources
+    implementation projects.common.ui.View
 
     implementation libs.androidx.browser
     implementation libs.androidx.core

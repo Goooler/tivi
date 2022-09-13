@@ -160,9 +160,9 @@ dependencies {
     implementation projects.base
     implementation projects.core.analytics
     implementation projects.core.logging
-    implementation projects.commonUiView
-    implementation projects.commonImageloading
-    implementation projects.commonUiCompose
+    implementation projects.common.ui.View
+    implementation projects.common.Imageloading
+    implementation projects.common.ui.Compose
     implementation projects.data
     implementation projects.dataAndroid
     implementation projects.trakt

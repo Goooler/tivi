@@ -37,8 +37,8 @@ android {
 dependencies {
     implementation projects.base
     implementation projects.domain
-    implementation projects.commonUiCompose
-    implementation projects.commonUiView
+    implementation projects.common.ui.Compose
+    implementation projects.common.ui.View
 
     implementation libs.androidx.lifecycle.viewmodel.ktx
 
