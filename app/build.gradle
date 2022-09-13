@@ -171,18 +171,18 @@ dependencies {
     implementation projects.domain
     implementation projects.tasks
 
-    implementation projects.uiAccount
-    implementation projects.uiDiscover
-    implementation projects.uiShowdetails
-    implementation projects.uiEpisodedetails
-    implementation projects.uiFollowed
-    implementation projects.uiWatched
-    implementation projects.uiPopular
-    implementation projects.uiTrending
-    implementation projects.uiRecommended
-    implementation projects.uiSearch
-    implementation projects.uiShowseasons
-    implementation projects.uiSettings
+    implementation projects.ui.Account
+    implementation projects.ui.Discover
+    implementation projects.ui.Showdetails
+    implementation projects.ui.Episodedetails
+    implementation projects.ui.Followed
+    implementation projects.ui.Watched
+    implementation projects.ui.Popular
+    implementation projects.ui.Trending
+    implementation projects.ui.Recommended
+    implementation projects.ui.Search
+    implementation projects.ui.Showseasons
+    implementation projects.ui.Settings
 
     implementation libs.androidx.lifecycle.viewmodel.ktx
 
