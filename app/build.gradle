@@ -158,8 +158,8 @@ android {
 
 dependencies {
     implementation projects.base
-    implementation projects.coreAnalytics
-    implementation projects.coreLogging
+    implementation projects.core.analytics
+    implementation projects.core.logging
     implementation projects.commonUiView
     implementation projects.commonImageloading
     implementation projects.commonUiCompose
