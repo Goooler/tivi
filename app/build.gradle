@@ -165,9 +165,9 @@ dependencies {
     implementation projects.common.ui.Compose
     implementation projects.data
     implementation projects.dataAndroid
-    implementation projects.trakt
-    implementation projects.traktAuth
-    implementation projects.tmdb
+    implementation projects.api.trakt
+    implementation projects.api.traktAuth
+    implementation projects.api.tmdb
     implementation projects.domain
     implementation projects.tasks
 

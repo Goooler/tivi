@@ -29,8 +29,8 @@ dependencies {
     implementation projects.base
     api projects.data
     implementation projects.dataAndroid
-    implementation projects.traktAuth
-    implementation projects.tmdb
+    implementation projects.api.traktAuth
+    implementation projects.api.tmdb
 
     implementation libs.hilt.library
     kapt libs.hilt.compiler

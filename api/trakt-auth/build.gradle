@@ -32,7 +32,7 @@ android {
 dependencies {
     implementation projects.base
     implementation projects.data
-    api projects.trakt
+    api projects.api.trakt
 
     implementation libs.hilt.library
     kapt libs.hilt.compiler

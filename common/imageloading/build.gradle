@@ -29,7 +29,7 @@ dependencies {
     implementation projects.base
     implementation projects.data
     implementation projects.common.ui.View
-    implementation projects.tmdb
+    implementation projects.api.tmdb
 
     implementation libs.androidx.core
 
