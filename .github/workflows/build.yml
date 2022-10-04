@@ -36,6 +36,8 @@ jobs:
           java-version: 17
 
       - uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: release-nightly
 
       - name: Decrypt secrets
         run: ./release/decrypt-secrets.sh
@@ -46,10 +48,10 @@ jobs:
         run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
 
       - name: Build
-        run: ./gradlew spotlessCheck assemble bundle app:lintQaDebug
+        run: gradle spotlessCheck assemble bundle app:lintQaDebug
 
       - name: Check
-        run: ./gradlew testDebugUnitTest testQaDebugUnitTest
+        run: gradle testDebugUnitTest testQaDebugUnitTest
 
       - name: Create release for tags
         uses: softprops/action-gh-release@v1
