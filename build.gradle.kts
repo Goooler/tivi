@@ -15,12 +15,10 @@
  *
  */
 
-import app.tivi.buildsrc.DependencyUpdates
-import app.tivi.buildsrc.ReleaseType
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.BasePlugin
-import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import dagger.hilt.android.plugin.HiltExtension
+import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -29,13 +27,12 @@ plugins {
     alias(libs.plugins.android.lint) apply false
     alias(libs.plugins.android.test) apply false
     alias(libs.plugins.kotlin.android) apply false
-    alias(libs.plugins.kotlin.napt) apply false
+    alias(libs.plugins.kotlin.kapt) apply false
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.hilt) apply false
     alias(libs.plugins.gms.googleServices) apply false
     alias(libs.plugins.firebase.crashlytics) apply false
     alias(libs.plugins.spotless)
-    alias(libs.plugins.dependencyUpdate)
 }
 
 allprojects {
@@ -43,14 +40,11 @@ allprojects {
         google()
         mavenCentral()
 
-        // Jetpack Compose SNAPSHOTs
-        val composeSnapshot = rootProject.libs.versions.composesnapshot.get()
-        if (composeSnapshot.length > 1) {
-            maven("https://androidx.dev/snapshots/builds/$composeSnapshot/artifacts/repository/")
-        }
+        // Jetpack Compose SNAPSHOTs if needed
+        // maven("https://androidx.dev/snapshots/builds/$composeSnapshot/artifacts/repository/")
 
-        // Used for snapshots
-        maven("https://oss.sonatype.org/content/repositories/snapshots/")
+        // Used for snapshots if needed
+        // maven("https://oss.sonatype.org/content/repositories/snapshots/")
     }
 }
 
@@ -63,7 +57,6 @@ subprojects {
             targetExclude("bin/**/*.kt")
 
             ktlint(libs.versions.ktlint.get())
-                .editorConfigOverride(mapOf("disabled_rules" to "filename"))
             licenseHeaderFile(rootProject.file("spotless/copyright.kt"))
         }
     }
@@ -99,8 +92,10 @@ subprojects {
     }
 
     plugins.withId(rootProject.libs.plugins.hilt.get().pluginId) {
-        // Had to turn this off for napt to work
-        extensions.getByType<HiltExtension>().enableAggregatingTask = false
+        extensions.getByType<HiltExtension>().enableAggregatingTask = true
+    }
+    plugins.withId(rootProject.libs.plugins.kotlin.kapt.get().pluginId) {
+        extensions.getByType<KaptExtension>().correctErrorTypes = true
     }
     plugins.withType<BasePlugin>().configureEach {
         extensions.configure<BaseExtension> {
@@ -114,21 +109,5 @@ subprojects {
                 targetCompatibility = JavaVersion.VERSION_11
             }
         }
-    }
-}
-
-/**
- * Update dependencyUpdates task to reject versions which are more 'unstable' than our
- * current version.
- */
-tasks.withType<DependencyUpdatesTask>().configureEach {
-    rejectVersionIf {
-        val current = DependencyUpdates.versionToRelease(currentVersion)
-        // If we're using a SNAPSHOT, ignore since we must be doing so for a reason.
-        if (current == ReleaseType.SNAPSHOT) return@rejectVersionIf true
-
-        // Otherwise we reject if the candidate is more 'unstable' than our version
-        val candidate = DependencyUpdates.versionToRelease(candidate.version)
-        return@rejectVersionIf candidate.isLessStableThan(current)
     }
 }
