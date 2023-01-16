@@ -59,7 +59,7 @@ allprojects {
             targetExclude("$buildDir/**/*.kt")
             targetExclude("bin/**/*.kt")
             ktlint(libs.versions.ktlint.get())
-                .editorConfigOverride(mapOf("ktlint_filename" to "disabled"))
+                .editorConfigOverride(mapOf("ktlint_standard_filename" to "disabled"))
             licenseHeaderFile(rootProject.file("spotless/copyright.txt"))
         }
         kotlinGradle {
