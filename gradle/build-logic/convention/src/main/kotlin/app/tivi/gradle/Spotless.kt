@@ -17,11 +17,15 @@ fun Project.configureSpotless() {
   }
 
   spotless {
-    val ktlintVersion = libs.findLibrary("ktlint").get().get().version
+    val ktlintVersion = libs.findLibrary("ktlintCli").get().get().version
+    val ktlintComposeRules = libs.findLibrary("ktlintComposeRules").get().get().toString()
 
     kotlin {
       target("src/**/*.kt")
       ktlint(ktlintVersion)
+        .customRuleSets(
+          listOf(ktlintComposeRules)
+        )
       licenseHeaderFile(rootProject.file("spotless/google-copyright.txt"))
         .named("google")
         .onlyIfContentMatches("Copyright \\d+,* Google")
